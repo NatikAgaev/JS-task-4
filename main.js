@@ -110,3 +110,66 @@ function isLucky(ticketNumber) {
 
 console.log(isLucky(123456));
 
+// task 8
+
+function capitalizeFirstLetters(text) {
+    let newText = "";
+    if(text[0] != text[0].toUpperCase()) {
+        let pseudoTextArr = text.split("");
+        pseudoTextArr[0] = text[0].toUpperCase();
+        pseudoTextArr = pseudoTextArr.join("");
+        text = pseudoTextArr;
+    }
+    for(let i = 0; i <= text.length - 1; i++) {
+        if(text[i] == " ") {
+            newText += text[i];
+            i++;
+            newText += text[i].toUpperCase();
+            continue;
+        } else {
+            newText += text[i];
+        }
+    }
+    return newText;
+}
+
+console.log(capitalizeFirstLetters("Hello guys, how are you doing?"));
+
+// task 9
+
+function getNumberCase(number) {
+    return number == 0 ? "Do not put zero" : number % 2 == 0 ? true : false;
+}
+
+console.log(getNumberCase(0));
+
+// task 10
+
+let count = 0;
+function isValidNumber(userTelefonNumber) {
+    let arr = userTelefonNumber.split("");
+    if(userTelefonNumber[0] != "+" || Number(userTelefonNumber[1] != 7)) {
+        return "Incorrect user telefon number";
+    }
+    count++;
+    arr.shift();
+    arr.shift()
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] == " " || arr[i] == "-" || arr[i] == "(" || arr[i] == ")") {
+            continue;
+        } else if(isNaN(arr[i])) {
+            return "You did not put your telefon number";
+        }
+        count++;
+    }
+    if(count != 11) {
+        return "You should have 11-digit telefon number";
+    }
+    return userTelefonNumber;
+}
+
+console.log(isValidNumber("+792631"));
+console.log(count);
+
+// task 11
+   
